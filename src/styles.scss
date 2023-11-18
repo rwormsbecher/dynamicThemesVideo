@@ -1,1 +1,29 @@
-/* You can add global styles to this file, and also import other style files */
+.blue-theme {
+  --primary-color: blue;
+  --text-color: white;
+}
+
+.orange-theme {
+  --primary-color: orange;
+  --text-color: black;
+}
+
+.yellow-theme {
+  --primary-color: yellow;
+  --text-color: black;
+}
+
+.green-theme {
+  --primary-color: green;
+  --text-color: white;
+}
+
+.purple-theme {
+  --primary-color: purple;
+  --text-color: white;
+}
+
+body {
+  background-color: var(--primary-color);
+  color: var(--text-color);
+}

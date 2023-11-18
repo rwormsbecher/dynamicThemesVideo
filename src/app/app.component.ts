@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, effect, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 
@@ -7,8 +7,18 @@ import { RouterOutlet } from '@angular/router';
   standalone: true,
   imports: [CommonModule, RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  title = 'dynamicThemesVideo';
+  theme = signal<string>('blue-theme');
+
+  constructor() {
+    effect(() => {
+      document.body.className = this.theme();
+    });
+  }
+
+  changeTheme(theme: string) {
+    this.theme.set(theme);
+  }
 }
